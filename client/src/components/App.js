@@ -4,8 +4,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Landing from '../components/Landing';
 import Dashboard from '../components/Dashboard';
+import * as actions from '../actions';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+  
   render() {
     return (
       <div className="container">
@@ -21,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default connect(null)(App);
+export default connect(null, actions)(App);
